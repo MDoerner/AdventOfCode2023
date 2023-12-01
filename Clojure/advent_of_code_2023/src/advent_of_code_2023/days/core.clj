@@ -7,18 +7,19 @@
 
 (defn parse_day
   "Parse input of AdventOfCode 2023 problem for specified day"
-  [day, input_string]
-  (let [namespace_symbol (day_namespace_symbol day)
-        function_name "parse_input"
-        parser (symbol namespace_symbol function_name)]
+  [day input_string]
+  (let [namespace_symbol (day_namespace_symbol day)]
     (require namespace_symbol)
-    (parser input_string)))
+    (let [function_symbol (symbol "parse_input")
+          parser (ns-resolve namespace_symbol function_symbol)]
+      (apply parser [input_string]))))
+
 
 (defn solve_part
   "Solves specified part of AdventOfCode 2023 problem for specified day based on parsed input"
-  [day, part, input]
-  (let [namespace_symbol (day_namespace_symbol day)
-        function_name (str "solve_part" part)
-        solver (symbol namespace_symbol function_name)]
+  [day part input]
+  (let [namespace_symbol (day_namespace_symbol day)]
     (require namespace_symbol)
-    (solver input)))
+    (let [function_symbol (symbol (str "solve_part" part))
+          solver (ns-resolve namespace_symbol function_symbol)]
+      (apply solver [input]))))
