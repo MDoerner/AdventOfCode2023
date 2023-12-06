@@ -84,7 +84,7 @@
     (let [input_text example_input_1
           parsed_input (parse_input input_text)
           result (solve_part1 parsed_input)]
-      (is (= result "650599855")))))
+      (is (= result "35")))))
 
 (deftest solve_part2-example-test
   (testing "Test for example input to part 2"
@@ -95,7 +95,7 @@
 
 (deftest solve_part1-input-test
   (testing "Test for real input to part 1"
-    (is (= (solve_problem day 1) "8063216"))))
+    (is (= (solve_problem day 1) "650599855"))))
 
 (deftest solve_part2-input-test
   (testing "Test for real input to part 2"
