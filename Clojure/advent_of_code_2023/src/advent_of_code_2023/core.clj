@@ -8,7 +8,7 @@
   [day, part]
   (let [input_string (in/load_problem_input day)
         input (days/parse_day day input_string)]
-    (days/solve_part day part input)))
+     (time (days/solve_part day part input))))
 
 
 (defn -main [& args]
