@@ -133,12 +133,6 @@
                         relevant_new_targets (map :end relevant_new_targets_with_direction)
                         new_rays (map (fn [end_point] #{source_mirror end_point}) relevant_new_targets)
                         new_sources (filter #(and (not= :edge (:type %1)) (not (contains? visited_mirrors %1))) relevant_new_targets)]
-                    ;(println " ")
-                    ;(println source_mirror)
-                    ;(println relevant_new_targets)
-                    ;(println new_rays)
-                    ;(println new_sources)
-                    ;(println " ")
                     (recur (into rays new_rays) (conj visited_mirrors source_mirror) (into (disj new_light_sources source_mirror) new_sources)))))))))
 
 (defn- mirror_hits
@@ -210,11 +204,6 @@
         visited_mirrors (count (keys mirror_visits))
         intersection_count (intersections_count rays)
         ]
-    ;(println total_ray_length)
-    ;(println total_mirror_visits)
-    ;(println visited_mirrors)
-    ;(println intersection_count)
-    ;(doseq [r rays] (println r))
     (- (- total_ray_length intersection_count) (- total_mirror_visits visited_mirrors))))
 
 
