@@ -139,13 +139,6 @@
 
 (def corner_types #{"F", "J", "L", "7"})
 
-(defn- neg_out_direction
-  [pipe_type]
-  (case pipe_type
-    "7" {:x 1 :y 0}
-    "F" {:x 0 :y -1}
-    "L" {:x -1 :y 0}
-    "J" {:x 0 :y 1}))
 
 (defn- outside_corner?
   [pipe_type in_direction orientation]
@@ -269,24 +262,6 @@
         "7"
         "J"))))
 
-(defn- result_map_point
-  [pos in_loop outside pipes]
-  (cond
-    (contains? in_loop pos) (get pipes pos)
-    (contains? outside pos) "O"
-    :else "I"))
-
-(defn- result_map_line
-  [y dimensions in_loop outside pipes]
-  (->> (range (:min_x dimensions) (inc (:max_x dimensions)))
-      (map #(result_map_point {:x %1 :y y} in_loop outside pipes))
-      (apply str)))
-
-(defn- result_map
-  [dimensions in_loop outside pipes]
-  (->> (range (:min_y dimensions) (inc (:max_y dimensions)))
-      (map #(result_map_line %1 dimensions in_loop outside pipes))
-      (str/join "\n")))
 
 (defn- inside_points_count
   [start pipes]
