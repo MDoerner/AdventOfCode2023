@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="126033cc-5078-4d6a-b337-ce2f5cade72f" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Clojure Namespace" />
+        <option value="Clojure Test Namespace" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2XDeVvJqYL3OEIByNbaTLVcOJ8b" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;cursive.last.file.extension.U\\:/Repositories/AdventOfCode2023/Clojure/advent_of_code_2023/src&quot;: &quot;clj&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;
+  }
+}</component>
+  <component name="ReplState" timestamp="1702165347012">{:repl-history {:ide [], :local [{:command &quot;(ns advent-of-code-2023.core)&quot;, :offset 29, :ns &quot;advent-of-code-2023.core&quot;} {:command &quot;(use advent-of-code-2023.days.core)&quot;, :offset 35, :ns &quot;advent-of-code-2023.core&quot;} {:command &quot;(parse_day 1 \&quot;oe1ocngk3kdk2kg/noe2ocngk3kdk2kg\&quot;)&quot;, :offset 48, :ns &quot;advent-of-code-2023.core&quot;} {:command &quot;(let [namespace_symbol (day_namespace_symbol 1)\n      function_name \&quot;parse_input\&quot;]\n  (symbol namespace_symbol function_name))&quot;, :offset 125, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(let [namespace_symbol (str \&quot;advent-of-code-2023.days.day\&quot; 1)\n      function_name \&quot;parse_input\&quot;]\n  (symbol namespace_symbol function_name))&quot;, :offset 139, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(let [namespace_symbol (day_namespace_symbol 1)\n      function_name \&quot;parse_input\&quot;]\n  (symbol (str namespace_symbol) function_name))&quot;, :offset 82, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(defn parse_day\n  \&quot;Parse input of AdventOfCode 2023 problem for specified day\&quot;\n  [day, input_string]\n  (let [namespace_symbol (day_namespace_symbol day)\n        function_name \&quot;parse_input\&quot;\n        parser (symbol (str namespace_symbol) function_name)]\n    (require namespace_symbol)\n    (parser input_string)))&quot;, :offset 309, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(require (day_namespace_symbol 1))&quot;, :offset 34, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(day_namespace_symbol 1)&quot;, :offset 24, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(let [namespace_symbol (day_namespace_symbol 1)\n      function_name \&quot;parse_input\&quot;\n      parser (symbol (str namespace_symbol) function_name)]\n  (require namespace_symbol)\n  (parser \&quot;oe1ocngk3kdk2kg/noe2ocngk3kdk2kg/n\&quot;c))&quot;, :offset 220, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(let [namespace_symbol (day_namespace_symbol 1)\n      function_name \&quot;parse_input\&quot;\n      parser (symbol (str namespace_symbol) function_name)]\n  (require namespace_symbol)\n  (parser \&quot;oe1ocngk3kdk2kg/noe2ocngk3kdk2kg/n\&quot;))&quot;, :offset 219, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(parse_day 2 \&quot;oe1ocngk3kdk2kg/noe2ocngk3kdk2kg/n\&quot;)&quot;, :offset 13, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(defn parse_day\n  \&quot;Parse input of AdventOfCode 2023 problem for specified day\&quot;\n  [day, input_string]\n  (let [namespace_symbol (day_namespace_symbol day)\n        function_name \&quot;parse_input\&quot;\n        parser (symbol (str namespace_symbol) function_name)]\n    (require namespace_symbol)\n    (eval (parser input_string))))&quot;, :offset 316, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(parse_day 1 \&quot;oe1ocngk3kdk2kg/noe2ocngk3kdk2kg/n\&quot;)&quot;, :offset 13, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(require advent-of-code-2023.days.day1)&quot;, :offset 38, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(in-ns 'advent-of-code-2023.days.day1)&quot;, :offset 38, :ns &quot;advent-of-code-2023.core&quot;} {:command &quot;(def day_ns_symbol (day_namespace_symbol 1))&quot;, :offset 44, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(require day_ns_symbol)&quot;, :offset 23, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;day_ns_symbol&quot;, :offset 13, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(def day_ns (find-ns (day_namespace_symbol 1)))&quot;, :offset 47, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;day_ns&quot;, :offset 6, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(ns-publics day_ns)&quot;, :offset 19, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(def function_symbol (symbol \&quot;parse_input\&quot;))&quot;, :offset 44, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(def parser (ns-resolve namespace_symbol function_symbol))&quot;, :offset 58, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(def parser (ns-resolve day_ns function_symbol))&quot;, :offset 48, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(fn? parser)&quot;, :offset 12, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;('advent-of-code-2023.days.day1/parse_input \&quot;oe1ocngk3kdk2kg/noe2ocngk3kdk2kg/n\&quot;)&quot;, :offset 44, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(day_ns/parse_input \&quot;oe1ocngk3kdk2kg/noe2ocngk3kdk2kg/n\&quot;)&quot;, :offset 40, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(parser \&quot;oe1ocngk3kdk2kg/noe2ocngk3kdk2kg/n\&quot;)&quot;, :offset 8, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(parser)&quot;, :offset 7, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;parser&quot;, :offset 6, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(advent-of-code-2023.days.day1/parse-input \&quot;oe1ocngk3kdk2kg/noe2ocngk3kdk2kg/n\&quot;)&quot;, :offset 80, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(advent-of-code-2023.days.day1/parse_input \&quot;oe1ocngk3kdk2kg/noe2ocngk3kdk2kg/n\&quot;)&quot;, :offset 43, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(apply advent-of-code-2023.days.day1/parse_input  [\&quot;oe1ocngk3kdk2kg/noe2ocngk3kdk2kg/n\&quot;])&quot;, :offset 89, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(apply #'advent-of-code-2023.days.day1/parse_input [\&quot;oe1ocngk3kdk2kg/noe2ocngk3kdk2kg/n\&quot;])&quot;, :offset 50, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(refer day_ns_symbol)&quot;, :offset 21, :ns &quot;advent-of-code-2023.days.core&quot;} {:command &quot;(defn parse_input\n  \&quot;Parses the input for day 1 of AdventOfCode 2023\&quot;\n  [input_string]\n  (remove\n    str/blank?\n    (str/split input_string #\&quot;\\r?\\n\&quot;)))&quot;, :offset 151, :ns &quot;advent-of-code-2023.days.day1&quot;} {:command &quot;(parse_input \&quot;oe1ocngk3kdk2kg/noe2ocngk3kdk2kg/n\&quot;)&quot;, :offset 50, :ns &quot;advent-of-code-2023.days.day1&quot;} {:command &quot;  (remove\n    str/blank?\n    (str/split \&quot;oe1ocngk3kdk2kg/noe2ocngk3kdk2kg/n\&quot; #\&quot;\\r?\\n\&quot;))&quot;, :offset 87, :ns &quot;advent-of-code-2023.days.day1&quot;} {:command &quot;(require clojure.string :as str)&quot;, :offset 32, :ns &quot;advent-of-code-2023.days.day1&quot;} {:command &quot;(require 'clojure.string :as str)&quot;, :offset 33, :ns &quot;advent-of-code-2023.days.day1&quot;} {:command &quot;(require [clojure.string :as str])&quot;, :offset 10, :ns &quot;advent-of-code-2023.days.day1&quot;} {:command &quot;(require '(clojure.string :as str))&quot;, :offset 35, :ns &quot;advent-of-code-2023.days.day1&quot;} {:command &quot;  (remove\n    clojure.string/blank?\n    (clojure.string/split \&quot;oe1ocngk3kdk2kg/noe2ocngk3kdk2kg/n\&quot; #\&quot;\\r?\\n\&quot;))&quot;, :offset 109, :ns &quot;advent-of-code-2023.days.day1&quot;} {:command &quot;(clojure.string/split \&quot;oe1ocngk3kdk2kg/noe2ocngk3kdk2kg/n\&quot; #\&quot;\\r?\\n\&quot;)&quot;, :offset 68, :ns &quot;advent-of-code-2023.days.day1&quot;} {:command &quot;(clojure.string/split \&quot;oe1ocngk3kdk2kg/noe2ocngk3kdk2kg/n\&quot; #\&quot;\\n\&quot;)&quot;, :offset 65, :ns &quot;advent-of-code-2023.days.day1&quot;} {:command &quot;(time solve_part1-example1-test)&quot;, :offset 32, :ns &quot;advent-of-code-2023.days.day9-test&quot;}], :remote []}}</component>
+  <component name="RunManager" selected="clojure.test.Test advent-of-code-2023.days.day17-test/solve_part2-input-test">
+    <configuration default="true" type="Babashka" factoryName="BabashkaLocalRepl" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="bbPath" value="" />
+      <setting name="parameters" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <setting name="workingDir" value="" />
+      <setting name="focusEditor" value="false" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Cursive REPL" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <option name="configVersion" value="1" />
+      <option name="displayName" value="Cursive REPL" />
+      <option name="execution" value="LEININGEN" />
+      <option name="focusEditor" value="true" />
+      <module name="advent_of_code_2023" />
+      <option name="options" />
+      <option name="profiles" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <option name="configVersion" value="1" />
+      <option name="options" />
+      <option name="profiles" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="host" value="" />
+      <setting name="port" value="0" />
+      <setting name="replType" value="SOCKET" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="replPortFileType" value="STANDARD" />
+      <setting name="customPortFile" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <setting name="focusEditor" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="advent-of-code-2023.core (2)" type="ClojureScriptRunConfiguration" factoryName="Clojure Script">
+      <option name="configVersion" value="1" />
+      <option name="execution" value="LEININGEN" />
+      <module name="advent_of_code_2023" />
+      <option name="namespace" value="advent-of-code-2023.core" />
+      <option name="options" />
+      <option name="profiles" />
+      <option name="type" value="NAMESPACE" />
+      <option name="VM_PARAMETERS" value="1 1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="advent-of-code-2023.core" type="ClojureScriptRunConfiguration" factoryName="Clojure Script">
+      <option name="configVersion" value="1" />
+      <module name="advent_of_code_2023" />
+      <option name="namespace" value="advent-of-code-2023.core" />
+      <option name="options" />
+      <option name="profiles" />
+      <option name="PROGRAM_PARAMETERS" value="1 1" />
+      <option name="type" value="NAMESPACE" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test advent-of-code-2023.days.day17-test/solve_part1-example1-test" type="ClojureTestRunConfiguration" factoryName="clojure.test" temporary="true">
+      <module name="advent_of_code_2023" />
+      <option name="selector" value="SINGLE_VAR" />
+      <option name="varFqn" value="advent-of-code-2023.days.day17-test/solve_part1-example1-test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test advent-of-code-2023.days.day17-test/solve_part1-input-test" type="ClojureTestRunConfiguration" factoryName="clojure.test" temporary="true">
+      <module name="advent_of_code_2023" />
+      <option name="selector" value="SINGLE_VAR" />
+      <option name="varFqn" value="advent-of-code-2023.days.day17-test/solve_part1-input-test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test advent-of-code-2023.days.day17-test/solve_part2-example1-test" type="ClojureTestRunConfiguration" factoryName="clojure.test" temporary="true">
+      <module name="advent_of_code_2023" />
+      <option name="selector" value="SINGLE_VAR" />
+      <option name="varFqn" value="advent-of-code-2023.days.day17-test/solve_part2-example1-test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test advent-of-code-2023.days.day17-test/solve_part2-example2-test" type="ClojureTestRunConfiguration" factoryName="clojure.test" temporary="true">
+      <module name="advent_of_code_2023" />
+      <option name="selector" value="SINGLE_VAR" />
+      <option name="varFqn" value="advent-of-code-2023.days.day17-test/solve_part2-example2-test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test advent-of-code-2023.days.day17-test/solve_part2-input-test" type="ClojureTestRunConfiguration" factoryName="clojure.test" temporary="true">
+      <module name="advent_of_code_2023" />
+      <option name="selector" value="SINGLE_VAR" />
+      <option name="varFqn" value="advent-of-code-2023.days.day17-test/solve_part2-input-test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="clojure.test.Test advent-of-code-2023.days.day17-test/solve_part1-example1-test" />
+      <item itemvalue="clojure.test.Test advent-of-code-2023.days.day17-test/solve_part1-input-test" />
+      <item itemvalue="clojure.test.Test advent-of-code-2023.days.day17-test/solve_part2-example1-test" />
+      <item itemvalue="clojure.test.Test advent-of-code-2023.days.day17-test/solve_part2-example2-test" />
+      <item itemvalue="clojure.test.Test advent-of-code-2023.days.day17-test/solve_part2-input-test" />
+      <item itemvalue="Clojure Application.advent-of-code-2023.core (2)" />
+      <item itemvalue="Clojure Application.advent-of-code-2023.core" />
+      <item itemvalue="Clojure REPL.Cursive REPL" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="clojure.test.Test advent-of-code-2023.days.day17-test/solve_part2-input-test" />
+        <item itemvalue="clojure.test.Test advent-of-code-2023.days.day17-test/solve_part2-example2-test" />
+        <item itemvalue="clojure.test.Test advent-of-code-2023.days.day17-test/solve_part2-example1-test" />
+        <item itemvalue="clojure.test.Test advent-of-code-2023.days.day17-test/solve_part1-input-test" />
+        <item itemvalue="clojure.test.Test advent-of-code-2023.days.day17-test/solve_part1-example1-test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="126033cc-5078-4d6a-b337-ce2f5cade72f" name="Changes" comment="" />
+      <created>1698168105458</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1698168105458</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
