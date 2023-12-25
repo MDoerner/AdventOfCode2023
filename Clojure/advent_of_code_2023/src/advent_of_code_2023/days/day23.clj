@@ -249,6 +249,28 @@
     (->> (concat non_end_nodes end_nodes)
          (str/join "\n"))))
 
+(defn- non-slippery-longest-path-dfs-internal
+  [non-slippery-trails destination point visited current-length]
+  (if (= point destination)
+    current-length
+    (let [relevant-edges (->> (get non-slippery-trails point)
+                            (filter (fn [{end :end}] (not (contains? visited end)))))]
+      (if (empty? relevant-edges)
+        -1                                                  ;path never reached the destination
+        (let [longest-to-destination (map #(non-slippery-longest-path-dfs-internal
+                                             non-slippery-trails
+                                             destination
+                                             (:end %1)
+                                             (conj visited (:end %1))
+                                             (+ current-length (:length %1)))
+                                          relevant-edges)]
+          (apply max longest-to-destination))
+        ))))
+
+(defn- non-slippery-longest-path-dfs
+  [non-slippery-trails start destination]
+  (non-slippery-longest-path-dfs-internal non-slippery-trails destination start #{start} 0))
+
 (defn solve_part2
   "Solves part 2 of day 23 of AdventOfCode 2023"
   [input]
@@ -257,8 +279,7 @@
         start (:start input)
         destination (:destination input)]
     (println (graph_size trails))
-    (println (str/join "\n" (sort-by (fn [[{x :x y :y} _]] [x y]) trails)))
-    (println (node_list_string trails))
-    (println (edge_list_string trails))
-    (str (non-slippery-longest-path trails start destination))))
-
+    ;(println (str/join "\n" (sort-by (fn [[{x :x y :y} _]] [x y]) trails)))
+    ;(println (node_list_string trails))
+    ;(println (edge_list_string trails))
+    (str (non-slippery-longest-path-dfs trails start destination))))

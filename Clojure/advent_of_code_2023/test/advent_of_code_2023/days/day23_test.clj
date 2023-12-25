@@ -36,4 +36,4 @@
 
 (deftest solve_part2-input-test
   (testing "Test for real input to part 2"
-    (is (= (solve_problem day 2) "94116351948493"))))
+    (is (= (solve_problem day 2) "6670"))))
