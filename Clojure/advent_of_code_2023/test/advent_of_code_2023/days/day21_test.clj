@@ -1,6 +1,6 @@
 (ns advent-of-code-2023.days.day21-test
   (:require [clojure.test :refer :all])
-  (:require [advent-of-code-2023.days.day21 :refer [parse_input solve_part1 solve_part2]])
+  (:require [advent-of-code-2023.days.day21 :refer [parse_input solve_part1 solve_part2 solve_part2_naive]])
   (:require [advent-of-code-2023.core :refer [solve_problem]]))
 
 (def day 21)
@@ -70,12 +70,12 @@
           result (solve_part1 adjusted_input)]
       (is (= result "16")))))
 
-(deftest solve_part2-example2-test
+(deftest solve_part2_naive-example2-test
   (testing "Test for example input 2 to part 2"
     (let [input_text example_input_2
           parsed_input (parse_input input_text)
           adjusted_inputs (into [] (map #(assoc parsed_input :steps2 %1) [6 10 50 100 500 1000 5000]))
-          results (into [] (map #(time (solve_part2 %1)) adjusted_inputs))
+          results (into [] (map #(time (solve_part2_naive %1)) adjusted_inputs))
           expecteds ["16" "50" "1594" "6536" "167004" "668697" "16733044"]]
       (is (= results expecteds)))))
 
