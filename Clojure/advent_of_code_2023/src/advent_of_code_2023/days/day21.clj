@@ -141,10 +141,14 @@
 (defn solve_part2_naive
   "Solves part 2 of day 21 of AdventOfCode 2023"
   [input]
-  (let [{steps :steps2 start :start width :width height :height rocks :rocks} input]
+  (let [{steps :steps2 start :start width :width height :height rocks :rocks} input
+        reachable (move_looping rocks width height start steps)]
     ;(println (move_twice rocks width height {:x 0 :y 4}))
     ;(println (move_once_looping rocks width height {:x -1 :y 4}))
-    (str (count (move_looping rocks width height start steps)))
+    (println (->> reachable
+                  (filter #(> (:x %1) 458))
+                  (count)))
+    (str (count reachable))
     ))
 
 
@@ -185,32 +189,6 @@
             even-distances
             odd-distance-minus-one)))
 
-(defn- full_cover_count
-  [max_distance extent steps direction]
-  (case direction
-    :center (if (> steps max_distance) {:even 0 :odd 1} {:even 0 :odd 0})
-    (:left :right :up :down) (let [to_first (/ (inc extent) 2)
-                                   first_to_last_possible (- steps (+ max_distance to_first))
-                                   ]
-                               (if (> first_to_last_possible 0)
-                                 (let [full_garden_distance (inc (int (/ first_to_last_possible extent)))
-                                       half_count (int (/ full_garden_distance 2))]
-                                   {
-                                    :even (if (even? full_garden_distance) half_count (inc half_count))
-                                    :odd half_count
-                                    })
-                                 {:even 0 :odd 0})
-                               )
-    (:top-left :top-right :bottom-left :bottom-right) (let [to_first (inc extent)
-                                                            first_to_last_possible (- steps (+ max_distance to_first))]
-                                                        (if (> first_to_last_possible 0)
-                                                          (let [full_garden_distance (int (/ first_to_last_possible extent))
-                                                                half_count (int (/ full_garden_distance 2))]
-                                                            {
-                                                             :odd (if (even? full_garden_distance) (* half_count half_count) (* (inc half_count) (inc half_count)))
-                                                             :even (* (inc half_count) (+ half_count 2))
-                                                             })
-                                                          {:even 0 :odd 0}))))
 
 (defn- partial_cover_distances
   [max_distance extent steps direction]
@@ -241,7 +219,6 @@
                                                           (let [full_garden_distance (inc (int (/ first_to_last_possible extent)))
                                                                 last_even? (even? full_garden_distance)
                                                                 distance_to_first_partial (+ (* full_garden_distance extent) to_first)
-                                                                a (println (int (/ (- steps distance_to_first_partial) extent)))
                                                                 distances (range distance_to_first_partial (inc steps) extent)
                                                                 remaining_distances (map-indexed (fn [index dist]
                                                                                                    {
@@ -273,23 +250,26 @@
                                   [direction (apply max (keys counts_in_distance))]))
                            (into {}))
         full_cover_points {
-                           :even (->> (get reference_points :center)
-                                      (conj #{})
-                                      (points_within_distance_even rocks width height)
-                                      (vals)
+                           :even (->> (get points_in_distance :center)
+                                      (filter (fn [[distance _]] (even? distance)))
+                                      (map second)
                                       (apply max))
-                           :odd (->> (get reference_points :left)
-                                     (conj #{})
-                                     (points_within_distance_even rocks width height)
-                                     (vals)
+                           :odd (->> (get points_in_distance :center)
+                                     (filter (fn [[distance _]] (odd? distance)))
+                                     (map second)
                                      (apply max))
                            }
-        full_cover_counts (->> max_distances
-                               (map (fn [[direction max_distance]] [direction (full_cover_count max_distance height steps direction)]))
-                               (into {}))
+        size height
+        chunks (/ (- steps (/ (dec size) 2)) size)
+        full_cover_counts {
+                            :even (let [border-length (if (even? chunks) chunks (dec chunks))]
+                                    (* border-length border-length))
+                            :odd (let [border-length (if (odd? chunks) chunks (dec chunks))]
+                                   (* border-length border-length))
+                           }
         full_cover_reachable (->> full_cover_counts
+                                  (merge-with * full_cover_points)
                                   (vals)
-                                  (map #(reduce + (vals (merge-with * %1 full_cover_points))))
                                   (reduce +))
         remaining_distances (->> max_distances
                                  (map (fn [[direction max_distance]] [direction (partial_cover_distances max_distance height steps direction)]))
@@ -301,20 +281,23 @@
                                  (reduce into [])
                                  (reduce +))
         ]
+    (println (/ (- 26501365 65) 131))
     (println (str/join "\n" max_distances))
     (println " ")
     (println (str/join "\n" full_cover_points))
     (println " ")
+    (println [(* 131 131) (count rocks) (- (* 131 131) (count rocks)) (reduce + 0 (vals full_cover_points))])
+    (println " ")
     (println (str/join "\n" full_cover_counts))
-    (println " ")
-    (println (reduce (partial merge-with +) (vals full_cover_counts)))
-    (println " ")
-    (println [(* 202300 202300) (* 202299 202299) (/ (* 202300 202300) 4) (/ (dec (* 202299 202299)) 4) (- (/ (* 202300 202300) 4) 202299) (- (/ (dec (* 202299 202299)) 4) 202300)])
     (println " ")
     (println (str/join "\n" remaining_distances))
     (println " ")
+    (println (+ (* 131 4) 65))
+    (println " ")
     (println full_cover_reachable)
     (println remaining_reachable)
+    (println (+ full_cover_reachable remaining_reachable))
+    (println " ")
     (+ full_cover_reachable remaining_reachable)))
 
 (defn solve_part2
@@ -322,5 +305,7 @@
   [input]
   (let [{steps :steps2 start :start width :width height :height rocks :rocks} input]
     (println [width height])
-    (str (reachable_count rocks width height start steps))
+    (println (reachable_count rocks width height start 589))
+    (println (time (solve_part2_naive (assoc input :steps2 589))))
+    ;(str (reachable_count rocks width height start steps))
     ))
