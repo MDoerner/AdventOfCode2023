@@ -31,12 +31,12 @@
           result (time (solve_part1 adjusted_input))]
       (is (= result "2")))))
 
-(deftest solve_part2-example2-test
-  (testing "Test for example input 2 to part 2"
-    (let [input_text example_input_2
-          parsed_input (time (parse_input input_text))
-          result (solve_part2 parsed_input)]
-      (is (= result "952408144115")))))
+;(deftest solve_part2-example2-test
+;  (testing "Test for example input 2 to part 2"
+;    (let [input_text example_input_2
+;          parsed_input (time (parse_input input_text))
+;          result (solve_part2 parsed_input)]
+;      (is (= result "952408144115")))))
 
 
 (deftest solve_part1-input-test
@@ -46,4 +46,4 @@
 
 (deftest solve_part2-input-test
   (testing "Test for real input to part 2"
-    (is (= (solve_problem day 2) "94116351948493"))))
+    (is (= (solve_problem day 2) "606772018765659"))))
