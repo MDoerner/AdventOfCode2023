@@ -143,11 +143,66 @@
   [input]
   (let [{steps :steps2 start :start width :width height :height rocks :rocks} input
         reachable (move_looping rocks width height start steps)]
-    ;(println (move_twice rocks width height {:x 0 :y 4}))
-    ;(println (move_once_looping rocks width height {:x -1 :y 4}))
-    (println (->> reachable
-                  (filter #(> (:x %1) 458))
-                  (count)))
+    (println (str "single odd covered: " (->> reachable
+                                              (filter (fn [{x :x y :y}]
+                                                        (and (< x 131) (< y 131) (>= x 0) (>= y 0))))
+                                              (count))))
+    (println (str "single even covered: " (->> reachable
+                                               (filter (fn [{x :x y :y}]
+                                                         (and (< x 0) (< y 131) (>= x -131) (>= y 0))))
+                                               (count))))
+    (println (str "all covered: " (->> reachable
+                                       (filter (fn [{x :x y :y}]
+                                                 (<= (+ (abs (- x 65)) (abs (- y 65))) 458)))
+                                       (count))))
+    (println (str "left tip: " (->> reachable
+                                    (filter (fn [{x :x y :y}]
+                                              (and (< x -393) (< y 131) (>= y 0))))
+                                    (count))))
+    (println (str "right tip: " (->> reachable
+                                     (filter (fn [{x :x y :y}]
+                                               (and (>= x 524) (< y 131) (>= y 0))))
+                                     (count))))
+    (println (str "top tip: " (->> reachable
+                                   (filter (fn [{x :x y :y}]
+                                             (and (< y -393) (< x 131) (>= x 0))))
+                                   (count))))
+    (println (str "bottom tip: " (->> reachable
+                                      (filter (fn [{x :x y :y}]
+                                                (and (>= y 524) (< x 131) (>= x 0))))
+                                      (count))))
+    (println (str "small top-right corner: " (->> reachable
+                                                  (filter (fn [{x :x y :y}]
+                                                            (and (>= x 524) (< y 0))))
+                                                  (count))))
+    (println (str "small bottom-right corner: " (->> reachable
+                                                     (filter (fn [{x :x y :y}]
+                                                               (and (>= x 524) (>= y 131))))
+                                                     (count))))
+    (println (str "small top-left corner: " (->> reachable
+                                                 (filter (fn [{x :x y :y}]
+                                                           (and (< x -393) (< y 0))))
+                                                 (count))))
+    (println (str "small bottom-left corner: " (->> reachable
+                                                    (filter (fn [{x :x y :y}]
+                                                              (and (< x -393) (>= y 131))))
+                                                    (count))))
+    (println (str "big top-right corner: " (->> reachable
+                                                (filter (fn [{x :x y :y}]
+                                                          (and (< x 524) (>= x 393) (< y 0) (>= y -131))))
+                                                (count))))
+    (println (str "big bottom-right corner: " (->> reachable
+                                                   (filter (fn [{x :x y :y}]
+                                                             (and (< x 524) (>= x 393) (< y 262) (>= y 131))))
+                                                   (count))))
+    (println (str "big top-left corner: " (->> reachable
+                                               (filter (fn [{x :x y :y}]
+                                                         (and (>= x -393) (< x -262) (< y 0) (>= y -131))))
+                                               (count))))
+    (println (str "big bottom-left corner: " (->> reachable
+                                                  (filter (fn [{x :x y :y}]
+                                                            (and (>= x -393) (< x -262) (< y 262) (>= y 131))))
+                                                  (count))))
     (str (count reachable))
     ))
 
@@ -167,7 +222,7 @@
 
 (defn- points_within_distance_even
   [rocks width height point-set]
-  (loop [reachable point-set barely_reachable point-set within_distance {0 1} distance 2]
+  (loop [reachable point-set barely_reachable point-set within_distance {0 1} distance 0]
     (if (empty? barely_reachable)
       within_distance
       (let [new_barely_reachable(->> barely_reachable
@@ -200,7 +255,6 @@
                                  (let [full_garden_distance (inc (int (/ first_to_last_possible extent)))
                                        last_even? (odd? full_garden_distance)
                                        distance_to_first_partial (+ (* full_garden_distance extent) to_first)
-                                       a (println (int (/ (- steps distance_to_first_partial) extent)))
                                        distances (range distance_to_first_partial (inc steps) extent)
                                        remaining_distances (map-indexed (fn [index dist]
                                                                           {
@@ -281,31 +335,45 @@
                                  (reduce into [])
                                  (reduce +))
         ]
-    (println (/ (- 26501365 65) 131))
-    (println (str/join "\n" max_distances))
-    (println " ")
-    (println (str/join "\n" full_cover_points))
-    (println " ")
-    (println [(* 131 131) (count rocks) (- (* 131 131) (count rocks)) (reduce + 0 (vals full_cover_points))])
-    (println " ")
-    (println (str/join "\n" full_cover_counts))
-    (println " ")
-    (println (str/join "\n" remaining_distances))
-    (println " ")
-    (println (+ (* 131 4) 65))
-    (println " ")
-    (println full_cover_reachable)
-    (println remaining_reachable)
-    (println (+ full_cover_reachable remaining_reachable))
-    (println " ")
+    ;(println start)
+    ;(println chunks)
+    ;(println " ")
+    ;(println (str "single odd covered: " (:odd full_cover_points)))
+    ;(println (str "single even covered: " (:even full_cover_points)))
+    ;(println (str "odd covered count: " (:odd full_cover_counts)))
+    ;(println (str "even covered count: " (:even full_cover_counts)))
+    ;(println (str "all covered: " full_cover_reachable))
+    ;(println (str "left tip: " (get remaining_distances :left)))
+    ;(println (str "right tip: " (get remaining_distances :right)))
+    ;(println (str "top tip: " (get remaining_distances :up)))
+    ;(println (str "bottom tip: " (get remaining_distances :down)))
+    ;(println (str "top-right corner specs: " (get remaining_distances :top-left)))
+    ;(println (str "bottom-right corner specs: " (get remaining_distances :bottom-left)))
+    ;(println (str "top-left corner specs: " (get remaining_distances :top-right)))
+    ;(println (str "bottom-left corner specs: " (get remaining_distances :bottom-right)))
+    ;(println (str "left tip: " (get (get points_in_distance :left) 130)))
+    ;(println (str "left tip direct: " (count (move rocks width height (get reference_points :left) 130))))
+    ;(println (str "right tip: " (get (get points_in_distance :right) 130)))
+    ;(println (str "top tip: " (get (get points_in_distance :up) 130)))
+    ;(println (str "bottom tip: " (get (get points_in_distance :down) 130)))
+    ;(println (str "small top-right corner: " (get (get points_in_distance :top-left) 64)))
+    ;(println (str "small bottom-right corner: " (get (get points_in_distance :bottom-left) 64)))
+    ;(println (str "small top-left corner: " (get (get points_in_distance :top-right) 64)))
+    ;(println (str "small bottom-left corner: " (get (get points_in_distance :bottom-right) 64)))
+    ;(println (str "big top-right corner: " (get (get points_in_distance :top-left) 195)))
+    ;(println (str "big bottom-right corner: " (get (get points_in_distance :bottom-left) 195)))
+    ;(println (str "big top-left corner: " (get (get points_in_distance :top-right) 195)))
+    ;(println (str "big bottom-left corner: " (get (get points_in_distance :bottom-right) 195)))
+    ;(println " ")
+    ;(println (+ full_cover_reachable remaining_reachable))
     (+ full_cover_reachable remaining_reachable)))
 
 (defn solve_part2
   "Solves part 2 of day 21 of AdventOfCode 2023"
   [input]
   (let [{steps :steps2 start :start width :width height :height rocks :rocks} input]
-    (println [width height])
-    (println (reachable_count rocks width height start 589))
-    (println (time (solve_part2_naive (assoc input :steps2 589))))
-    ;(str (reachable_count rocks width height start steps))
+    ;(println [width height])
+    ;(println (reachable_count rocks width height start 589))
+    ;(println (time (solve_part2_naive (assoc input :steps2 589))))
+    (str (reachable_count rocks width height start steps))
     ))
